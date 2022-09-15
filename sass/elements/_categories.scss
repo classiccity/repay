@@ -1,0 +1,28 @@
+.#{$ns}categories {
+  margin-bottom: 1.5rem;
+
+  .#{$ns}category-container {
+    padding: 0 4px;
+  }
+
+  .#{$ns}category {
+
+    border:1px solid #EEE;
+    margin-bottom: .5rem;
+    padding: .5rem;
+
+    .#{$ns}parent {
+      font-size:.6rem;
+      margin-bottom: .25rem;
+    }
+
+    .#{$ns}divider {
+      padding-right: .5rem;
+    }
+
+    .#{$ns}child {
+      font-size:.75rem;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'accordion-drawers';
+
+.#{$block_name} {
+
+	--toggle-w: 24px;
+	--toggle-border: 2px;
+
+	transition: $transition;
+
+	&__drawer {
+		margin: 1rem 0;
+	}
+
+	&__toggle {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		background: none;
+    border: none;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 0;
+		cursor: pointer;
+
+		&:focus {
+			outline-color: rgb(255 255 255 / 50%);
+			background: rgb(255 255 255 / 30%);
+		}
+		&:hover {
+			background: rgb(255 255 255 / 45%);
+		}
+	}
+
+	&__toggle-icon {
+		width: var(--toggle-w);
+		min-width: var(--toggle-w);
+		height: var(--toggle-w);
+		border: var(--toggle-border) solid $primary;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: auto var(--toggle-w);
+		position: relative;
+
+		.toggle-line {
+			height: var(--toggle-border);
+			width: calc(100% - (2 * var(--toggle-border)));
+			background-color: $primary;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(0deg);
+			transform-origin: center;
+			transition: $transition;
+			&--2 {
+				transform: translate(-50%, -50%) rotate(0deg);
+			}
+		}
+
+	}
+
+	&__title {
+		text-transform: none;
+		margin: 0;
+		text-align: left;
+	}
+
+	&__text {
+		overflow-y: hidden;
+		transition: $transition;
+		max-height: 3000px;
+    overflow-y: scroll;
+		padding-top: 1rem;
+    padding-bottom: 1rem;
+		padding-right: var(--toggle-w);
+		padding-left: calc(var(--toggle-w) * 3);
+		color: currentColor;
+		background-color: rgb(255 255 255 / 30%);
+
+		@media screen and (max-width:$breakpoint-sm) {
+			padding-right: 1rem;
+			padding-left: 1rem;
+		}
+		// Hide scrollbar
+		-ms-overflow-style: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		p, li {
+			font-weight: 500;
+		}
+	}
+
+	&__drawer:not([aria-expanded="true"]) {
+		.#{$block_name}__text {
+			max-height: 0px;
+			padding-top: 0;
+			padding-bottom: 0;
+			color: transparent;
+		}
+		.toggle-line {
+			&--1 {
+				transform: translate(-50%, -50%) rotate(90deg);
+			}
+			&--2 {
+				transform: translate(-50%, -50%) rotate(-180deg);
+			}
+		}
+
+	}
+
+
+}

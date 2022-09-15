@@ -1,0 +1,253 @@
+{
+    "key": "group_606fcc23e9aa0",
+    "title": "Block: Blog Posts",
+    "fields": [
+        {
+            "key": "field_606fcc2905865",
+            "label": "Blog Posts",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606fcc3205866",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Can be left empty, but if not, this will be the title above the blog post display",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_606fcc5e05867",
+            "label": "How to Pull Posts?",
+            "name": "how_to_pull_posts",
+            "type": "select",
+            "instructions": "What method should be used to display posts within this block?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "category": "Category-based",
+                "manual": "Manually-selected Posts"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_606fcc9505868",
+            "label": "How Many Posts?",
+            "name": "how_many_posts",
+            "type": "number",
+            "instructions": "How many posts to dynamically pull from the selected Category",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606fcc5e05867",
+                        "operator": "==",
+                        "value": "category"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_606fccbd05869",
+            "label": "Which Category?",
+            "name": "which_category",
+            "type": "taxonomy",
+            "instructions": "What category should we pull posts from?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606fcc5e05867",
+                        "operator": "==",
+                        "value": "category"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        },
+        {
+            "key": "field_606fcd07b6023",
+            "label": "Select the Posts to Display",
+            "name": "select_the_posts_to_display",
+            "type": "post_object",
+            "instructions": "Manually select the posts that should be displayed here",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606fcc5e05867",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_606fcd54b6024",
+            "label": "Style",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606fce08b6027",
+            "label": "How Many Columns Should Be Displayed?",
+            "name": "column_count",
+            "type": "select",
+            "instructions": "Number of columns to display horizontally",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606fcd5eb6025",
+                        "operator": "==",
+                        "value": "row"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "12": "1 column (100%)",
+                "6": "2 columns (50%)",
+                "4": "3 columns (33%)",
+                "3": "4 columns (25%)"
+            },
+            "default_value": [
+                4
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_606fce790dc5a",
+            "label": "Color",
+            "name": "color",
+            "type": "select",
+            "instructions": "Choose whether the TEXT should be light or dark (based on the background color it's being placed on)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "default_value": [
+                "light"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/blog-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1630947479
+}

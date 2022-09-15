@@ -1,0 +1,96 @@
+.repay-accordion-drawers {
+  --toggle-w: 24px;
+  --toggle-border: 2px;
+  transition: all 500ms ease-in-out 50ms;
+}
+.repay-accordion-drawers__drawer {
+  margin: 1rem 0;
+}
+.repay-accordion-drawers__toggle {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: none;
+  border: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+.repay-accordion-drawers__toggle:focus {
+  outline-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+}
+.repay-accordion-drawers__toggle:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+.repay-accordion-drawers__toggle-icon {
+  width: var(--toggle-w);
+  min-width: var(--toggle-w);
+  height: var(--toggle-w);
+  border: var(--toggle-border) solid #FF9A66;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto var(--toggle-w);
+  position: relative;
+}
+.repay-accordion-drawers__toggle-icon .toggle-line {
+  height: var(--toggle-border);
+  width: calc(100% - 2 * var(--toggle-border));
+  background-color: #FF9A66;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: center;
+  transition: all 500ms ease-in-out 50ms;
+}
+.repay-accordion-drawers__toggle-icon .toggle-line--2 {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.repay-accordion-drawers__title {
+  text-transform: none;
+  margin: 0;
+  text-align: left;
+}
+.repay-accordion-drawers__text {
+  overflow-y: hidden;
+  transition: all 500ms ease-in-out 50ms;
+  max-height: 3000px;
+  overflow-y: scroll;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: var(--toggle-w);
+  padding-left: calc(var(--toggle-w) * 3);
+  color: currentColor;
+  background-color: rgba(255, 255, 255, 0.3);
+  -ms-overflow-style: none;
+}
+@media screen and (max-width: 576px) {
+  .repay-accordion-drawers__text {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+.repay-accordion-drawers__text::-webkit-scrollbar {
+  display: none;
+}
+.repay-accordion-drawers__text p, .repay-accordion-drawers__text li {
+  font-weight: 500;
+}
+.repay-accordion-drawers__drawer:not([aria-expanded=true]) .repay-accordion-drawers__text {
+  max-height: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: transparent;
+}
+.repay-accordion-drawers__drawer:not([aria-expanded=true]) .toggle-line--1 {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.repay-accordion-drawers__drawer:not([aria-expanded=true]) .toggle-line--2 {
+  transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+/*# sourceMappingURL=accordion-drawers.css.map */

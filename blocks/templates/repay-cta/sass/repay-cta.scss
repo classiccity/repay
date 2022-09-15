@@ -1,0 +1,103 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'repay-cta';
+
+$primary-light: #082f5c;
+
+.#{$block_name} {
+
+	position: relative;
+	--min-height: 575px;
+	min-height: var(--min-height);
+	max-height: 1500px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	color: white;
+	background-color: $primary;
+
+	&__background-image {
+		height:100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 60%;
+		z-index: 0;
+		background-position-x: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	&__overlay {
+		height:100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width:100%;
+		z-index: 1;
+		// background: linear-gradient(90deg, transparent 35%, $primary 50%);
+		background: linear-gradient(90deg, transparent 35%, rgba($primary-light,0.7) 50%, $primary-light 60%);
+	}
+
+
+	&__content {
+		position: relative;
+		z-index: 2;
+		// width: 90vw;
+		// @media screen and (min-width: 1500px) {
+		// 	max-width: 1500px;
+		// 	margin: 0 auto;
+		// }
+	}
+	&__content-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&.cta-left {
+		.#{$block_name}__background-image {
+			left: unset;
+			right: 0;
+		}
+		.#{$block_name}__overlay {
+			// background: linear-gradient(-90deg, transparent 35%, $primary-light 50%);
+			background: linear-gradient(-90deg, transparent 35%, rgba($primary-light,0.7) 50%, $primary-light 60%);
+		}
+		.#{$block_name}__content-wrapper {
+			justify-content: flex-start;
+		}
+		&__glass-box {
+			background: linear-gradient(-90deg, rgba($primary, 0.85), rgba($primary, 0.3));
+		}
+	}
+
+	&__glass-box {
+		padding: 2rem;
+		// max-width: 550px;
+		width: 55%;
+		min-height: calc(var(--min-height) - 8rem);
+		background: linear-gradient(90deg, rgba($primary, 0.85), rgba($primary, 0.3));
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		row-gap: 2rem;
+	}
+
+	&__heading {
+		margin: 0;
+		line-height: 1.35;
+	}
+
+	&__text {
+		font-size: 1.1rem;
+		margin-top: 0.5em;
+		max-width: 42ch;
+		@media screen and (max-width: $breakpoint-sm) {
+			font-size: 1rem;
+		}
+	}
+}

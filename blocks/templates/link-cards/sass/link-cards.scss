@@ -1,0 +1,173 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'link-cards';
+
+.#{$block_name} {
+
+	position: relative;
+
+	& > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__svg-background {
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+
+		&.dot-wave {
+			display: flex;
+			flex-direction: row;
+			align-items: end;
+			justify-content: center;
+
+			svg.green-dot-wave {
+				// transform: scale(1.5) translateY(-20%);
+				transform: scale(2.5) translateY(-5%) rotate(-5deg);
+				@media (max-width: $breakpoint-md) {
+					transform: scale(4) translateY(-10%) rotate(-5deg)
+				}
+			}
+		}
+		&.dot-wave-3 {
+			display: flex;
+			flex-direction: row;
+			align-items: end;
+			justify-content: center;
+
+			margin: 0 calc(50% - 50vw);
+			max-width: 100vw;
+			width: 100vw;
+			overflow: hidden;
+			@media (max-width: $breakpoint-md) {
+				align-items: center;
+			}
+
+			svg.green-dot-wave-3 {
+				transform: scale(3) rotate(6deg);
+				--filter: grayscale(100%) brightness(0) opacity(0.08);
+				position: relative;
+    		// left: -20%;
+    		// top: 45%;
+				left: -20%;
+    		top: -40%;
+    		transform-origin: center top;
+				@media (max-width: $breakpoint-md) {
+					transform: scale(2) translateY(-20%);
+				}
+			}
+		}
+		// &.dot-wave-2 {
+		// 	display: flex;
+		// 	flex-direction: row;
+		// 	align-items: end;
+		// 	justify-content: center;
+
+		// 	svg.green-dot-wave-2 {
+		// 		transform: scale(1.25) translateY(-10%);
+		// 		--filter: grayscale(100%) brightness(0) opacity(0.08);
+		// 	}
+		// }
+
+
+	}
+
+	&__heading {
+		color: $accent;
+	}
+
+	&__text {
+    max-width: 80ch;
+	}
+
+	&__cards {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 0 auto;
+		padding: 4rem 0;
+		justify-content: space-between;
+		row-gap: 2rem;
+		column-gap: 2rem;
+	}
+
+	&__card {
+		width: calc((100% - 6rem)/2);
+    background-color: white;
+		padding: 2rem;
+		border: 1px solid $light-gray;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+		row-gap: 1rem;
+
+		opacity: 0;
+		top: 2rem;
+		transform: scale(0.95);
+		transition: all 1000ms ease-in-out 100ms;
+
+		&:nth-child(1n) {
+			transition: all 1000ms ease-in-out 200ms;
+		}
+		&:nth-child(2n) {
+			transition: all 1000ms ease-in-out 400ms;
+		}
+		&:nth-child(3n) {
+			transition: all 1000ms ease-in-out 600ms;
+		}
+		&:nth-child(4n) {
+			transition: all 1000ms ease-in-out 800ms;
+		}
+		&:nth-child(5n) {
+			transition: all 1000ms ease-in-out 1000ms;
+		}
+		&:nth-child(6n) {
+			transition: all 1000ms ease-in-out 1200ms;
+		}
+		&:nth-child(7n) {
+			transition: all 1000ms ease-in-out 1400ms;
+		}
+		&:nth-child(8n) {
+			transition: all 1000ms ease-in-out 1600ms;
+		}
+
+		&.is-viewed {
+			opacity: 1;
+			top: 0;
+			transform: scale(1);
+		}
+
+		@media (max-width: $breakpoint-md) {
+			width: 100%;
+		}
+	}
+
+
+	&__card-title {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+
+	&__card-text {
+
+	}
+
+	&__card-button {
+		margin-top: auto;
+		padding-top: 1.5rem;
+		a {
+			color: $accent;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-md) {
+
+	}
+}

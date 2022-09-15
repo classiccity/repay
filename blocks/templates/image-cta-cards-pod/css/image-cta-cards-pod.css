@@ -1,0 +1,70 @@
+.repay-image-cta-cards-pod {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+}
+.repay-image-cta-cards-pod__card {
+  width: calc((100% - 6rem) / 2);
+  margin: 2rem 0;
+  min-height: 45rem;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+.repay-image-cta-cards-pod__image {
+  width: 100%;
+  height: 25vw;
+  object-fit: cover;
+}
+.repay-image-cta-cards-pod__cta-container {
+  color: inherit;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0;
+}
+.repay-image-cta-cards-pod__cta-container > * {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.repay-image-cta-cards-pod__title {
+  text-transform: initial;
+  font-size: 2.25rem;
+}
+.repay-image-cta-cards-pod__text {
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+.repay-image-cta-cards-pod__text > *,
+.repay-image-cta-cards-pod__text li {
+  font-weight: 600;
+  line-height: 1.35;
+}
+.repay-image-cta-cards-pod__text strong, .repay-image-cta-cards-pod__text b {
+  font-weight: 800;
+}
+.repay-image-cta-cards-pod__button {
+  margin-top: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .repay-image-cta-cards-pod__card {
+    width: 90vw;
+    margin: 0 auto;
+    min-height: 70vw;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  .repay-image-cta-cards-pod__card:last-child {
+    border-bottom: none;
+  }
+  .repay-image-cta-cards-pod__image {
+    height: 50vw;
+  }
+}
+
+/*# sourceMappingURL=image-cta-cards-pod.css.map */

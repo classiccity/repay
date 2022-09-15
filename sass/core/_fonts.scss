@@ -1,0 +1,17 @@
+// Font family
+.#{$ns}font {
+
+  &-header { font-family:$font-header; }
+  &-body { font-family:$font-body; }
+  &-accent { font-family:$font-accent; }
+
+}
+
+// Font casees
+.#{$ns}font {
+
+  &-uppercase { text-transform: uppercase; }
+  &-lowercase { text-transform: lowercase; }
+  &-normalcase { text-transform: unset; }
+
+}

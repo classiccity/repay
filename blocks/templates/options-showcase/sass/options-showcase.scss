@@ -1,0 +1,186 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'options-showcase';
+
+.#{$block_name} {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+	&__showcase-container {
+		width: 66%;
+	}
+	&__button-container {
+		width: 34%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+		padding-left: 5%;
+    row-gap: 2.5rem;
+	}
+
+	&__option {
+		border: 2px solid white;
+		&:not(hidden) {
+			animation: fade-in 500ms ease-in-out 0ms;
+		}
+	}
+
+	&__header {
+		background: white;
+    color: black;
+		padding: 2rem;
+		@media screen and (max-width:$breakpoint-sm) {
+			padding: 1rem 1.5rem 1.5rem;
+		}
+	}
+
+	&__title {
+		font-size: 2.5rem;
+		text-transform: none;
+		margin-top: 0;
+		@media screen and (max-width:$breakpoint-sm) {
+			font-size: 2rem;
+		}
+	}
+	&__subtitle {
+		font-weight: 700;
+		font-size: 1.35rem;
+		@media screen and (max-width:$breakpoint-sm) {
+			font-size: 1.15rem;
+		}
+	}
+	&__text {
+		p, li {
+			font-size: 1.35rem;
+			letter-spacing: 0.05em;
+			font-weight: 400;
+			@media screen and (max-width:$breakpoint-sm) {
+				font-size: 1.15rem;
+			}
+		}
+	}
+
+	&__image-container {
+		height: 425px;
+		display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    background: black;
+
+		img {
+			object-fit: contain;
+			max-width: 100%;
+		}
+
+		@media screen and (max-width: $breakpoint-sm) {
+			height: auto;
+		}
+	}
+
+	&__button-container {
+
+		h3 {
+			margin: 0 auto;
+			width: 100%;
+    	text-align: center;
+			@media screen and (max-width:$breakpoint-sm) {
+				font-size: 1.3rem;
+			}
+		}
+
+		.button {
+			font-size: 1.35rem;
+    	border: 3px solid rgba(255,154,102,.85);
+			background: transparent;
+    	color: currentColor;
+			width: 100%;
+
+			&:hover,
+			&:focus	{
+				transform: none;
+				outline-color: $primary;
+				background: rgba(255,154,102,.95);
+				border: 3px solid rgba(255,154,102,.85);
+			}
+			&.active {
+				background-color: $primary;
+				border-color: $primary;
+			}
+		}
+	}
+
+	.hide-large {
+		display: none;
+	}
+
+	@media screen and (max-width: $breakpoint-xl) {
+		flex-direction: column-reverse;
+
+		.hide-large {
+			display: initial;
+		}
+
+		&__showcase-container {
+			width: 100%;
+		}
+		&__button-container {
+			width: 100%;
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding: 1.5rem 0;
+			row-gap: 1rem;
+			column-gap: 1rem;
+			justify-content: space-evenly;
+			border: 2px solid;
+
+			.button {
+				position: relative;
+				margin: auto;
+				width: calc(100% - 10rem);
+
+
+				&::before {
+					content: "\27A4";
+					color: rgba(255,255,255,.6);
+					position: absolute;
+					left: -2.5rem;
+					top: 1rem;
+					text-align: center;
+					width: 2rem;
+					height: 2rem;
+					line-height: 1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 250ms ease-in-out;
+				}
+				&.active::before {
+					color: rgba(255,255,255,1);
+					position: absolute;
+					transform: scale(2);
+				}
+
+				@media screen and (max-width:$breakpoint-sm) {
+					font-size: 1rem;
+					width: calc(100% - 4.5rem);
+					margin-left: 3rem;
+					padding: 0.5em 0.5em;
+
+					&::before {
+						top: calc(50% - 1rem);
+					}
+				}
+			}
+
+		}
+	}
+
+}
+
+@keyframes fade-in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}

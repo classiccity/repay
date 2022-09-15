@@ -1,0 +1,100 @@
+// General Padding
+.#{$ns}padding {
+
+  padding:$space-size-md;
+
+  @each $size in $space-size {
+    &-#{nth($size,1)} {
+      padding:#{nth($size,2)};
+    }
+  }
+
+  @each $location in $location-prefixes {
+
+    &-#{$location} {
+
+      @each $size in $space-size {
+
+        &-#{nth($size,1)} {
+          padding-#{$location}:#{nth($size,2)};
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+// Advanced columns padding (Advanced columns needs the padding on the `inner` div
+.wp-block-atomic-blocks-ab-column.#{$ns}padding {
+
+
+  @each $size in $space-size {
+    &-#{nth($size,1)} {
+
+      padding:0;
+
+      .ab-block-layout-column-inner {
+        padding: #{nth($size,2)};
+      }
+    }
+  }
+
+  @each $location in $location-prefixes {
+
+    &-#{$location} {
+
+      @each $size in $space-size {
+
+        &-#{nth($size,1)} {
+
+          padding:0;
+
+          .ab-block-layout-column-inner {
+            padding-#{$location}: #{nth($size,2)};
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+
+// General Margin
+.#{$ns}margin {
+
+  margin:$space-size-md;
+
+  @each $size in $space-size {
+    &-#{nth($size,1)} {
+      margin:#{nth($size,2)};
+    }
+  }
+
+  @each $location in $location-prefixes {
+
+    &-#{$location} {
+
+      @each $size in $space-size {
+
+        &-#{nth($size,1)} {
+          margin-#{$location}:#{nth($size,2)};
+        }
+
+      }
+
+    }
+
+  }
+
+}

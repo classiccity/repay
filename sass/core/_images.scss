@@ -1,0 +1,76 @@
+.wp-block-image {
+
+  // Caption overlay
+  &.has-caption {
+    position: relative;
+    width:100%;
+
+    img {
+      height: auto;
+      width:100%;
+    }
+
+    $caption-spacing:1rem;
+    figcaption {
+      background-color: rgba(255,255,255,.75);
+      bottom: $caption-spacing;
+      color:#333;
+      left: $caption-spacing;
+      margin: 0;
+      padding:calc($caption-spacing/2);
+      position: absolute;
+      width:calc(100% - (2* #{$caption-spacing}));
+    }
+  }
+
+
+
+  // Image Flair
+  &.has-flair {
+    position: relative;
+    width:100%;
+
+    img {
+      box-shadow:$box-shadow;
+      height: auto;
+      position: relative;
+      width:100%;
+      z-index: 1;
+    }
+
+    &.is-left {
+      padding-left: $flair-spacing;
+      padding-top: $flair-spacing;
+
+      &:after {
+        background-color: var(--primary-400);
+        content:'';
+        display: block;
+        height:calc(100% - #{$flair-spacing});
+        left: 0;
+        position: absolute;
+        top: 0;
+        width:calc(100% - #{$flair-spacing});
+        z-index: 0;
+      }
+    }
+
+    &.is-right {
+      padding-right: $flair-spacing;
+      padding-top: $flair-spacing;
+
+      &:after {
+        background-color: var(--secondary-400);
+        content:'';
+        display: block;
+        height:calc(100% - #{$flair-spacing});
+        position: absolute;
+        right: 0;
+        top: 0;
+        width:calc(100% - #{$flair-spacing});
+        z-index: 0;
+      }
+    }
+
+  }
+}

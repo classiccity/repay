@@ -1,0 +1,42 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'svg-showcase';
+
+.#{$block_name} {
+
+	.#{$ns}svg {
+		overflow: visible;
+		max-height: 80vh;
+		object-fit: contain;
+		// opacity: 0.5;
+
+			path[class^=cls] {
+				--filter: grayscale(100%) brightness(0) opacity(0.05);
+				filter: var(--filter);
+				transition: all 100ms ease-in 0ms;
+				&.pop {
+					animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
+				}
+				// &:hover {
+				// 	transform: translateY(-0.5%) scale(1.01);
+				// animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
+				// }
+			}
+	}
+}
+
+@keyframes path-pop {
+	0% {
+		filter: var(--filter);
+		// transform: translateY(0) scale(1);
+	}
+	50% {
+		// transform: translateY(-0.5%) scale(1.01);
+		filter: none;
+		fill: $accent;
+	}
+	100% {
+		filter: var(--filter);
+		// transform: translateY(0) scale(1);
+	}
+}

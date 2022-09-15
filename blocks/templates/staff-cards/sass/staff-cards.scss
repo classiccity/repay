@@ -1,0 +1,75 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'staff-cards';
+
+.#{$block_name} {
+
+	position: relative;
+	margin: 2rem auto 4rem;
+
+	&__svg-background {
+    position: absolute;
+    z-index: -1;
+
+		&.dot-circle {
+			left: -20%;
+			top: -4rem;
+			width: 60%;
+			transform: rotate(200deg) scaleX(-1);
+		}
+	}
+
+	&__staff-cards {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		row-gap: 2rem;
+		column-gap: 2rem;
+		margin: 2rem auto;
+		padding: 0;
+		list-style: none;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__staff-card {
+		background-color: white;
+		position: relative;
+		z-index: 2;
+		width: calc((100% - 6rem)/4);
+		padding: 1.5rem;
+		border: 1px solid $light-gray;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__image-container {
+		background-color: $light-gray;
+		width: 100%;
+		border-radius: 50%;
+    overflow: hidden;
+		aspect-ratio: 1;
+
+		img {
+			width: 100%;
+			height: auto;
+			min-height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__name {
+		margin: 1rem 0 0;
+    line-height: 1.15;
+	}
+
+	&__title {
+		color: $accent;
+	}
+
+	&__button {
+		margin-top: auto;
+	}
+
+}

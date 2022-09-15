@@ -1,0 +1,24 @@
+.social-row,
+.editor-styles-wrapper .social-row {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	li + li {
+		margin-left: 0.5em;
+	}
+
+	a:hover,
+	a:focus {
+		transform: translateY(-1px) scale(1.05);
+	}
+
+	svg {
+		color: currentColor !important;
+		fill: currentColor !important;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}

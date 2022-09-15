@@ -1,0 +1,177 @@
+@charset "UTF-8";
+.repay-options-showcase {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.repay-options-showcase__showcase-container {
+  width: 66%;
+}
+.repay-options-showcase__button-container {
+  width: 34%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-left: 5%;
+  row-gap: 2.5rem;
+}
+.repay-options-showcase__option {
+  border: 2px solid white;
+}
+.repay-options-showcase__option:not(hidden) {
+  animation: fade-in 500ms ease-in-out 0ms;
+}
+.repay-options-showcase__header {
+  background: white;
+  color: black;
+  padding: 2rem;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__header {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+}
+.repay-options-showcase__title {
+  font-size: 2.5rem;
+  text-transform: none;
+  margin-top: 0;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__title {
+    font-size: 2rem;
+  }
+}
+.repay-options-showcase__subtitle {
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__subtitle {
+    font-size: 1.15rem;
+  }
+}
+.repay-options-showcase__text p, .repay-options-showcase__text li {
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__text p, .repay-options-showcase__text li {
+    font-size: 1.15rem;
+  }
+}
+.repay-options-showcase__image-container {
+  height: 425px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+  background: black;
+}
+.repay-options-showcase__image-container img {
+  object-fit: contain;
+  max-width: 100%;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__image-container {
+    height: auto;
+  }
+}
+.repay-options-showcase__button-container h3 {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width: 576px) {
+  .repay-options-showcase__button-container h3 {
+    font-size: 1.3rem;
+  }
+}
+.repay-options-showcase__button-container .button {
+  font-size: 1.35rem;
+  border: 3px solid rgba(255, 154, 102, 0.85);
+  background: transparent;
+  color: currentColor;
+  width: 100%;
+}
+.repay-options-showcase__button-container .button:hover, .repay-options-showcase__button-container .button:focus {
+  transform: none;
+  outline-color: #FF9A66;
+  background: rgba(255, 154, 102, 0.95);
+  border: 3px solid rgba(255, 154, 102, 0.85);
+}
+.repay-options-showcase__button-container .button.active {
+  background-color: #FF9A66;
+  border-color: #FF9A66;
+}
+.repay-options-showcase .hide-large {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .repay-options-showcase {
+    flex-direction: column-reverse;
+  }
+  .repay-options-showcase .hide-large {
+    display: initial;
+  }
+  .repay-options-showcase__showcase-container {
+    width: 100%;
+  }
+  .repay-options-showcase__button-container {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    justify-content: space-evenly;
+    border: 2px solid;
+  }
+  .repay-options-showcase__button-container .button {
+    position: relative;
+    margin: auto;
+    width: calc(100% - 10rem);
+  }
+  .repay-options-showcase__button-container .button::before {
+    content: "➤";
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: -2.5rem;
+    top: 1rem;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 250ms ease-in-out;
+  }
+  .repay-options-showcase__button-container .button.active::before {
+    color: white;
+    position: absolute;
+    transform: scale(2);
+  }
+}
+@media screen and (max-width: 1200px) and (max-width: 576px) {
+  .repay-options-showcase__button-container .button {
+    font-size: 1rem;
+    width: calc(100% - 4.5rem);
+    margin-left: 3rem;
+    padding: 0.5em 0.5em;
+  }
+  .repay-options-showcase__button-container .button::before {
+    top: calc(50% - 1rem);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=options-showcase.css.map */

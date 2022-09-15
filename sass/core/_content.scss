@@ -1,0 +1,19 @@
+p,li {
+  font-family:$font-body;
+  font-weight: 300;
+  line-height: 1.45;
+	letter-spacing: 0.01em;
+
+  @include header_font_sizes(1rem);
+}
+
+p {
+	margin-bottom: 1em;
+}
+li {
+	margin-bottom: 0.1em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}

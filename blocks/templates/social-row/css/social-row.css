@@ -1,0 +1,27 @@
+.social-row,
+.editor-styles-wrapper .social-row {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.social-row li + li,
+.editor-styles-wrapper .social-row li + li {
+  margin-left: 0.5em;
+}
+.social-row a:hover,
+.social-row a:focus,
+.editor-styles-wrapper .social-row a:hover,
+.editor-styles-wrapper .social-row a:focus {
+  transform: translateY(-1px) scale(1.05);
+}
+.social-row svg,
+.editor-styles-wrapper .social-row svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/*# sourceMappingURL=social-row.css.map */

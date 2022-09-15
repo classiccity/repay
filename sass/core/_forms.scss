@@ -1,0 +1,59 @@
+.nf-form-wrap {
+  .nf-form-layout {
+
+    // Hide the "fields required" line
+    .nf-before-form-content {
+      .nf-form-fields-required {
+        display: none;
+      }
+    }
+
+    // Makes the form "full width" of it's container
+    .nf-form-content {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      width: 100%;
+
+      // Adjusts the margins/spacing around the field labels/descriptions
+      .nf-field-container {
+        .nf-field {
+          .nf-field-label {
+            margin-bottom: 0;
+          }
+          .nf-field-description {
+            margin-bottom: .5rem;
+          }
+        }
+      }
+
+      // Most-all of the input fields
+      .list-select-wrap .nf-field-element>div,
+      input:not([type=button]),
+      textarea {
+        background-color: #fff;
+        border-radius:$border-radius-sm;
+      }
+
+      // Submit button
+      button,
+      input[type=button],
+      input[type=submit] {
+        @include button();
+      }
+
+    }
+  }
+
+  // Multi-cell paddings
+  &.nf-multi-cell {
+    .nf-form-layout {
+      .nf-cell:first-child {
+        padding-left: 0;
+      }
+      .nf-cell:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.gb-block-post-grid {
+  .gb-post-grid-item {
+    .gb-block-post-grid-image {
+      a {
+        display: block;
+        overflow:hidden;
+        padding-top: 56.25%;
+        position: relative;
+        width:100%;
+
+        img {
+          height: auto;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          width:100%;
+        }
+      }
+    }
+
+    // Post title
+    .gb-block-post-grid-title {
+      a {
+        border:none;
+      }
+    }
+
+    .gb-block-post-grid-byline {
+
+      // Author
+      .gb-block-post-grid-author {
+        a {
+
+        }
+      }
+
+      // Datetime
+      .gb-block-post-grid-date {
+
+      }
+    }
+
+    .gb-block-post-grid-excerpt {
+
+      // Excerpt font
+      p {
+        font-size:.8em;
+      }
+
+      // Read More button
+      .gb-block-post-grid-more-link {
+        @include button();
+
+        font-size:.75em;
+      }
+    }
+  }
+}

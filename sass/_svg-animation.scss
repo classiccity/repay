@@ -1,0 +1,45 @@
+.#{$ns}svg-animation {
+
+	svg {
+		--filter: grayscale(100%) opacity(0.5);
+		max-height: 100%;
+	}
+
+	.#{$ns}svg {
+		overflow: visible;
+		object-fit: contain;
+    width: 100%;
+
+			path[class^=cls] {
+				// filter: var(--filter);
+				transition: all 100ms ease-in 0ms;
+				fill: $light-gray;
+				opacity: 0.5;
+				&.pop {
+					// fill: $accent;
+					animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
+				}
+			}
+	}
+}
+
+@keyframes path-pop {
+	0% {
+		// filter: var(--filter);
+		// transform: translateY(0) scale(1);
+		opacity: 0.5;
+		fill: $light-gray;
+	}
+	50% {
+		// transform: translateY(-0.5%) scale(1.01);
+		// filter: none;
+		opacity: 1;
+		fill: $accent;
+	}
+	100% {
+		// filter: var(--filter);
+		// transform: translateY(0) scale(1);
+		opacity: 0.5;
+		fill: $light-gray;
+	}
+}

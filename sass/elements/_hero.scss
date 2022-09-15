@@ -1,0 +1,118 @@
+.#{$ns}hero {
+
+  background-color: var(--gray-gray-900);
+  background-image: url(../images/bg-triangle-white.png);
+  margin-bottom: 2.5rem;
+  padding-left:2rem;
+  padding-right: 2rem;
+  position: relative;
+
+  @media screen and (max-width:$breakpoint-sm) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  > [class$="container-inside"] {
+    max-width:1110px !important;
+    //position: relative;
+    z-index: 2;
+  }
+
+  [class$="container-content"] {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.is-large {
+    padding-bottom: 15rem;
+    padding-top: 15rem;
+
+    @media screen and (max-width:$breakpoint-md) {
+      padding-bottom: 5.5rem;
+      padding-top: 5.5rem;
+    }
+  }
+
+  &.is-small {
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+
+    @media screen and (max-width:$breakpoint-md) {
+      padding-bottom: 3.5rem;
+      padding-top: 3.5rem;
+    }
+  }
+
+  &.is-light-text {
+    .has-text-color {
+      color:#FFF;
+    }
+  }
+  &.is-dark-text {
+    .has-text-color {
+      color:#000;
+    }
+  }
+
+  h1{
+    font-size:4em;
+    font-weight: 100;
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow:2px 2px 10px rgba(0,0,0,.1);
+
+    @media screen and (max-width:$breakpoint-md) {
+      font-size:2em;
+    }
+  }
+  h2{
+    color:#FFF;
+    font-family:$font-body;
+    font-size:1.75rem;
+    font-weight: 400;
+    margin-top: 1em;
+    // text-shadow:2px 2px 10px rgba(0,0,0,.1);
+  }
+
+  .ab-container-content {
+    p:first-of-type {
+      margin-top: 1rem;
+    }
+  }
+  @media screen and (max-width:$breakpoint-sm) {
+    //padding: 0;
+    //margin-top: 3.5rem;
+    //margin-bottom: 0;
+    .wp-block-atomic-blocks-ab-spacer{
+      margin: 0;
+    }
+  }
+
+  &:after {
+    background-image:url(../images/border-white.svg);
+    background-position:center;
+    background-repeat: repeat-x;
+    background-size:contain;
+    bottom: -2px;
+    content:'';
+    display: block;
+    height:15px;
+    left: 0;
+    position: absolute;
+    width:100%;
+    z-index: 3;
+  }
+
+  &:before {
+    background: linear-gradient(124deg, rgba(255,255,255,0) 0%, rgba($primary,.5) 100%);
+    content:'';
+    display: block;
+    height:100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+    z-index: 1;
+  }
+
+}

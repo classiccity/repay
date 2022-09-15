@@ -1,0 +1,117 @@
+$prefix: 'repay';
+$ns: $prefix+'-';
+
+$primary: #002B54;
+$secondary: #81BD41;
+$accent: #81BD41;
+$light-gray: #dae0e6;
+$extra-light-gray: #E8E8E8;
+$dark: $primary;
+
+$primary-light: #163567; // #082f5c;
+
+$dark-gray: #1E1E1E;
+
+$primary-opposite: white;
+$secondary-opposite: white;
+$accent-opposite: white;
+$light-gray-opposite: black;
+$extra-light-gray-opposite: black;
+$dark-opposite: white;
+
+$high: $primary;
+$medium: rgba($primary,.5);
+$low: rgba($primary,.2);
+
+$admin-bar-offset: 32px;
+$admin-bar-offset-mobile: 46px;
+$admin-bar-mobile-breakpoint: 782px;
+
+$colors: (
+        primary: $primary,
+        secondary: $secondary,
+        accent: $accent,
+        light-gray: $light-gray,
+        extra-light-gray: $extra-light-gray,
+        dark: $dark
+);
+$colors-opposite: (
+        primary: $primary-opposite,
+        secondary: $secondary-opposite,
+        accent: $accent-opposite,
+        light-gray: $light-gray-opposite,
+        extra-light-gray: $extra-light-gray-opposite,
+        dark: $dark-opposite
+);
+
+$colors-combined: (
+  ('primary',$primary,$primary-opposite),
+  ('primary-opposite',$primary-opposite,$primary),
+  ('secondary',$secondary,$secondary-opposite),
+  ('secondary-opposite',$secondary-opposite,$secondary),
+  ('accent',$accent,$accent-opposite),
+  ('accent-opposite',$accent-opposite,$accent),
+  ('light-gray',$light-gray,$light-gray-opposite),
+  ('light-gray-opposite',$light-gray-opposite,$light-gray),
+  ('extra-light-gray',$extra-light-gray,$extra-light-gray-opposite),
+  ('extra-light-gray-opposite',$extra-light-gray-opposite,$extra-light-gray),
+  ('dark',$dark,$dark-opposite),
+  ('dark-opposite',$dark-opposite,$dark),
+);
+
+$font-header: 'Montserrat',Helvetica,Arial,sans-serif;
+$font-body: 'Nunito', Helvetica,Arial,sans-serif;
+$font-accent: 'Montserrat',Helvetica,Arial,sans-serif;
+
+$vertical-top-margin:6rem;
+
+$default-speed:250ms;
+
+$button-vertical-padding: .5rem;
+$button-horizontal-padding:1.5rem;
+
+$vertical-spacing:3rem;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+
+$blog-content-width:900px;
+
+// Generic flair spacing
+$flair-spacing:1.5rem;
+
+// Default border-radius
+$border-radius-lg:15px;
+$border-radius-md:10px;
+$border-radius-sm:3px;
+
+// Default drop shadoow
+$box-shadow:2px 2px 15px rgba(0,0,0,.15);
+
+// Space sizing
+$space-size-none:  0em;
+$space-size-xs: .75em;
+$space-size-sm: 1em;
+$space-size-md: 1.75em;
+$space-size-lg: 2.5em;
+$space-size-xl: 3.5em;
+$space-size-xxl: 4.75em;
+
+// Locations for spaces loops
+$location-prefixes: ('top','right','bottom','left');
+
+// Array of space sizes
+$space-size: (
+  ('none', '0em'),
+  ('xs', '.75em'),
+  ('sm', '1em'),
+  ('md', '1.75em'),
+  ('lg', '2.5em'),
+  ('xl', '3.5em'),
+  ('xxl', '4.75em')
+);
+
+$transition: all 500ms ease-in-out 50ms;

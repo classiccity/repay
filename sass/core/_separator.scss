@@ -1,0 +1,22 @@
+.wp-block-separator {
+
+  // Core coloring in Gutenberg is done at the `color` level, hence the borders
+  border-bottom: 3px solid;
+  border-top: 3px solid;
+
+  margin:6rem 0;
+  opacity:.2;
+  width:100%;
+
+  &.is-small {
+    margin: 3rem 0;
+    width: 100%;
+  }
+
+	.gb-block-layout-column-inner > & {
+		margin: 1rem 0;
+    width: 100%;
+		border-bottom: 1px solid;
+		border-top: 1px solid;
+	}
+}

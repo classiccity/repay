@@ -1,0 +1,98 @@
+
+.#{$ns}lime {
+	color: var(--repay-lime);
+	display: inline-block;
+	font-weight: 700;
+}
+
+.#{$ns}main {
+
+
+}
+
+.#{$ns}stretch-together.gb-2-col-equal .gb-layout-column-wrap {
+	display: flex;
+  flex-direction: row;
+	flex-wrap: wrap;
+
+	@media screen and (max-width:$breakpoint-lg) {
+		flex-direction: column;
+	}
+
+	&.gb-block-layout-column-gap-0 > .wp-block-genesis-blocks-gb-column {
+    width: 50%;
+	}
+	&.gb-block-layout-column-gap-1  > .wp-block-genesis-blocks-gb-column {
+    width: 48%;
+	}
+	&.gb-block-layout-column-gap-2  > .wp-block-genesis-blocks-gb-column {
+    width: 46%;
+	}
+	&.gb-block-layout-column-gap-3  > .wp-block-genesis-blocks-gb-column {
+    width: 44%;
+	}
+	&.gb-block-layout-column-gap-4  > .wp-block-genesis-blocks-gb-column {
+    width: 42%;
+	}
+	&.gb-block-layout-column-gap-5  > .wp-block-genesis-blocks-gb-column {
+    width: 40%;
+	}
+	&.gb-block-layout-column-gap-6  > .wp-block-genesis-blocks-gb-column {
+    width: 38%;
+	}
+	&.gb-block-layout-column-gap-7  > .wp-block-genesis-blocks-gb-column {
+    width: 36%;
+	}
+	&.gb-block-layout-column-gap-8  > .wp-block-genesis-blocks-gb-column {
+    width: 34%;
+	}
+	&.gb-block-layout-column-gap-9  > .wp-block-genesis-blocks-gb-column {
+    width: 32%;
+	}
+	&.gb-block-layout-column-gap-10  > .wp-block-genesis-blocks-gb-column {
+    width: 30%;
+	}
+
+	& > .wp-block-genesis-blocks-gb-column {
+		display: flex;
+		overflow: hidden;
+
+		&.gb-is-vertically-aligned-center > .gb-block-layout-column-inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&.gb-is-vertically-aligned-top > .gb-block-layout-column-inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		&.gb-is-vertically-aligned-bottom > .gb-block-layout-column-inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
+
+		@media screen and (max-width:$breakpoint-lg) {
+			width: 100% !important;
+			& .gb-block-layout-column-inner {
+				width: 100%;
+			}
+		}
+
+		& .gb-block-layout-column-inner > figure {
+			margin: 0 !important;
+			& > img {
+				object-fit: cover;
+				min-height: fit-content;
+				min-width: 50vw;
+				@media screen and (max-width:$breakpoint-lg) {
+					min-width: 100vw;
+				}
+			}
+		}
+
+	}
+}

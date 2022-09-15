@@ -1,0 +1,78 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'cta-icon-card-pod';
+
+.#{$block_name} {
+
+	width: 80%;
+	max-width: 450px;
+	margin: 5% auto;
+	--min-height: 700px;
+	min-height: var(--min-height);
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	@media screen and (max-width: $breakpoint-sm) {
+		width: calc(100% - 1rem);
+		max-width: unset;
+		--min-height: 600px;
+	}
+
+	&__overlay {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+	}
+
+	&__content {
+		color: white;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content-container {
+		padding: 12rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: var(--min-height);
+
+		@media screen and (max-width: $breakpoint-sm) {
+			min-height: unset;
+			padding: 6rem 2rem 4rem;
+		}
+
+		img {
+			object-fit: none;
+    	align-self: baseline;
+		}
+
+		p {
+			letter-spacing: 0.1em;
+		}
+
+		& > * + * {
+			margin-top: 1rem;
+		}
+	}
+
+	&__title {
+		text-transform: capitalize;
+	}
+
+	&__button {
+		margin-top: auto;
+		@media screen and (max-width: $breakpoint-sm) {
+			margin-top: 1rem;
+		}
+	}
+
+}
