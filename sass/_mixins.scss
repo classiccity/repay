@@ -49,10 +49,23 @@
     transform: scale(1.025) translateY(-1px);
 		background: $accent;
   }
-	// &.has-repay-lime-background-color:hover,
-	// &.has-repay-lime-background-color:focus {
-	// 	// background: #588c1d !important;
-	// }
+	&.has-repay-lime-background-color:hover,
+	&.has-repay-lime-background-color:focus {
+		background: $primary !important;
+		color: $primary-opposite !important;
+	}
+
+	&.has-white-background-color:hover,
+	&.has-white-background-color:focus {
+		background: $primary !important;
+		color: $primary-opposite !important;
+	}
+
+	&.has-steel-gray-background-color:hover,
+	&.has-steel-gray-background-color:focus {
+		background: $primary !important;
+		color: $primary-opposite !important;
+	}
 
 }
 

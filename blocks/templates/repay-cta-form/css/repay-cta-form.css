@@ -1,0 +1,99 @@
+.repay-repay-cta-form {
+  position: relative;
+  --min-height: 575px;
+  min-height: var(--min-height);
+  max-height: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  background-color: #002B54;
+  padding: 3rem 0;
+}
+.repay-repay-cta-form__background-image {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 60%;
+  z-index: 0;
+  background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.repay-repay-cta-form__overlay {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(90deg, transparent 35%, rgba(8, 47, 92, 0.7) 50%, #082f5c 60%);
+}
+.repay-repay-cta-form__content {
+  position: relative;
+  z-index: 2;
+}
+.repay-repay-cta-form__content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.repay-repay-cta-form.cta-left .repay-repay-cta-form__background-image {
+  left: unset;
+  right: 0;
+}
+.repay-repay-cta-form.cta-left .repay-repay-cta-form__overlay {
+  background: linear-gradient(-90deg, transparent 35%, rgba(8, 47, 92, 0.7) 50%, #082f5c 60%);
+}
+.repay-repay-cta-form.cta-left .repay-repay-cta-form__content-wrapper {
+  justify-content: flex-start;
+}
+.repay-repay-cta-form.cta-left__glass-box {
+  background: linear-gradient(-90deg, rgba(0, 43, 84, 0.85), rgba(0, 43, 84, 0.3));
+}
+.repay-repay-cta-form__glass-box {
+  padding: 2rem;
+  width: 55%;
+  min-height: calc(var(--min-height) - 8rem);
+  background: linear-gradient(90deg, rgba(0, 43, 84, 0.85), rgba(0, 43, 84, 0.3));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  row-gap: 1rem;
+}
+.repay-repay-cta-form__heading {
+  margin: 0;
+}
+.repay-repay-cta-form__text {
+  font-size: 1.1rem;
+  margin-top: 0.5em;
+  max-width: 42ch;
+}
+@media screen and (max-width: 576px) {
+  .repay-repay-cta-form__text {
+    font-size: 1rem;
+  }
+}
+.repay-repay-cta-form__form {
+  width: 100%;
+}
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content button,
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=button],
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=submit] {
+  background: var(--wp--preset--color--repay-lime) !important;
+  color: var(--repay-lime-opposite) !important;
+}
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content button:hover, .repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content button:focus,
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=button]:hover,
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=button]:focus,
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=submit]:hover,
+.repay-repay-cta-form__form .nf-form-wrap .nf-form-layout .nf-form-content input[type=submit]:focus {
+  background: var(--repay-lime-opposite) !important;
+  color: var(--wp--preset--color--dark-blue) !important;
+}
+
+/*# sourceMappingURL=repay-cta-form.css.map */

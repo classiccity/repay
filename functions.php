@@ -72,31 +72,6 @@ function my_custom_admin_style() {
 }
 add_action('admin_head', 'my_custom_admin_style');
 
-
-/**
-* Load an inline SVG.
-*
-* @param string $filename The filename of the SVG you want to load.
-*
-* @return string The content of the SVG you want to load.
-*/
-function load_inline_svg( $filename ) {
-
-	// Add the path to your SVG directory inside your theme.
-	$svg_path = '/inc/img/svg/';
-
-
-	// Check the SVG file exists
-	if ( file_exists( get_stylesheet_directory() . $svg_path . $filename ) ) {
-
-			// Load and return the contents of the file
-			return file_get_contents( get_stylesheet_directory_uri() . $svg_path . $filename );
-	}
-
-	// Return a blank string if we can't find the file.
-	return '';
-}
-
 // Protect Javascript in PHP templates from being char encoded
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_content', 'wptexturize' );
@@ -196,3 +171,91 @@ function fliptext_handler( $atts ) {
 
 }
 add_shortcode( 'fliptext', 'fliptext_handler' );
+
+
+
+function get_snippet($post, $args = []) {
+
+	$default_args = array(
+		'character_limit' => 300,
+		'add_ellipsis' => true,
+		'ellipsis_string' => '...',
+		'strip_WYSIWYG_tags' => true,
+	);
+
+	$args = array_merge($default_args, $args);
+
+	$strip_WYSIWYG_tags = $args['strip_WYSIWYG_tags'];
+
+	$string = $post->post_excerpt;
+
+	if(empty($string)) {
+		$string = $post->post_content;
+
+		// ---
+
+		$string = str_replace(array("<ul>", "<ol>"), '', $string);
+		$string = str_replace(array("</ul>", "</ol>"), '', $string);
+
+		$string = str_replace(array("<li>"), '<span> ', $string);
+		$string = str_replace(array("</li>"), ',</span> ', $string);
+
+		$string = str_replace(array("<h1>"), '<p> ', $string);
+		$string = str_replace(array("</h1>"), '</p> ', $string);
+
+		$string = str_replace(array("<h2>"), '<p> ', $string);
+		$string = str_replace(array("</h2>"), '</p> ', $string);
+
+		$string = str_replace(array("<h3>"), '<p> ', $string);
+		$string = str_replace(array("</h3>"), '</p> ', $string);
+
+		$string = str_replace(array("<h4>"), '<p> ', $string);
+		$string = str_replace(array("</h4>"), '</p> ', $string);
+
+		$string = str_replace(array("<h5>"), '<p> ', $string);
+		$string = str_replace(array("</h5>"), '</p> ', $string);
+
+		$string = str_replace(array("<h6>"), '<p> ', $string);
+		$string = str_replace(array("</h6>"), '</p> ', $string);
+
+		$string = str_replace(array("<p></p>"), '', $string);
+		$string = str_replace(array("<p> </p>"), '', $string);
+
+		// ---
+
+		$allowed_tags = ($strip_WYSIWYG_tags) ? null : '<p><br><span>';
+		$dirty = strip_tags($string, $allowed_tags);
+		$dirty = str_replace(array("\r", "\n",'  '), '', $dirty);
+		$cleaned = new DOMDocument();
+		@$cleaned->loadHTML(utf8_decode($dirty));
+		$string = $cleaned->saveHTML();
+		$string = strip_tags($string, $allowed_tags);
+
+	}
+
+	return create_snippet($string, $args);
+}
+
+function create_snippet($string, $args = []) {
+	$default_args = array(
+		'character_limit' => 300,
+		'add_ellipsis' => true,
+		'ellipsis_string' => '...',
+	);
+
+	$args = array_merge($default_args, $args);
+
+	$character_limit = $args['character_limit'];
+	$add_ellipsis = $args['add_ellipsis'];
+	$ellipsis_string = $args['ellipsis_string'];
+
+	$snippet = $string;
+
+	if( strlen($snippet) > $character_limit ) {
+		$sub_string = substr($snippet, 0, $character_limit); // Trim the length back to character limit
+		$sub_string = substr($sub_string, 0, strrpos($sub_string, ' ', -1)); // Trim back again to the last whitespace
+		$snippet = $sub_string;
+		if($add_ellipsis) $snippet .= $ellipsis_string;
+	}
+	return $snippet;
+}

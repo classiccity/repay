@@ -1,6 +1,6 @@
 <?php
     global $post;
-    $body_classes = array(prefix());
+    $body_classes = array(prefix(), 'fade-in-onload');
 
     // CSS classes for <body>
     if(is_single()) $body_classes[] = prefix()."-single";

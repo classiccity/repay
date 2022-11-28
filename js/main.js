@@ -252,11 +252,17 @@ function set_scroll_class_observers(els = []) {
 				var e = entries[i].target;
 				var is_visible = entries[i].isIntersecting;
 				var scroll_class = e.getAttribute('data-scroll-class');
+				if(undefined == scroll_class) scroll_class = 'in-view';
 				var removable = e.getAttribute('data-removable-scroll-class');
 				var is_removable = (removable && removable.length && removable == 'false') ? false : true;
 
 				if(is_visible) e.classList.add(scroll_class);
 				else if(is_removable) e.classList.remove(scroll_class);
+
+				if(e.dataset.inviewAction && is_visible) {
+					eval(e.dataset.inviewAction);
+					observer.unobserve(e);
+				}
 			}
 		}, options);
 
@@ -264,4 +270,58 @@ function set_scroll_class_observers(els = []) {
 			observer.observe(els[i]);
 		}
 	}
+}
+
+function fade_in_onload() {
+	if(document.body.classList.contains('is-faded-in')) return;
+	var fios = document.getElementsByClassName('fade-in-onload');
+	for(var i=0; i<fios.length; i++) {
+		fios[i].classList.add('delayed-slow-fade-in');
+	}
+	if(fios.length) setTimeout(function(){ // Clean up, so the class styles don't override other styles
+		var fios = document.getElementsByClassName('fade-in-onload');
+		for(var i=0; fios.length>0; i=0) { // We work from the 0 index only...
+			fios[i].classList.remove('delayed-slow-fade-in');
+			fios[i].classList.remove('fade-in-onload');  // ...because this removes it from the 'fios' element collection
+		}
+	},2000);
+	document.body.classList.add('is-faded-in');
+}
+
+setTimeout(fade_in_onload, 2000);
+
+function move_to_bottom() {
+	var move_these = document.getElementsByClassName('move-to-bottom');
+	jQuery(".move-to-bottom").appendTo("body");
+}
+
+
+jQuery( document ).ready(function() {
+	fade_in_onload();
+	move_to_bottom();
+})
+
+
+// keeps track of whether user is pressing cmd key
+var cmd_pressed = false;
+
+document.body.addEventListener('keydown', function(e) {
+	cmd_pressed = e.metaKey
+});
+
+document.body.addEventListener('keyup', function(e) {
+	cmd_pressed = false;
+});
+
+const go_to_my_link = function(el) {
+	window.go_to_el = el;
+	let link = el.getElementsByTagName('a')[0];
+	if( undefined === link) {
+		console.log('no link fond within element:', el);
+		return;
+	}
+	else url = link.getAttribute('href');
+
+	if(cmd_pressed) window.open(url); // new window
+	else window.location.assign(url); // same window
 }

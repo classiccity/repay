@@ -50,7 +50,7 @@
   align-self: baseline;
 }
 .repay-cta-icon-card-pod__content-container p {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 .repay-cta-icon-card-pod__content-container > * + * {
   margin-top: 1rem;

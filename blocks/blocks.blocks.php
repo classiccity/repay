@@ -53,22 +53,17 @@ function ccc_acf_blocks() {
 			acf_register_block_type(array(
 				'name'              => 'staff-cards',
 				'title'             => __('Staff Cards'),
-				'description'       => __('Display cards with image, name, title, and link.'),
+				'description'       => __('Display cards with image, name, title, and popup bio.'),
 				'category'          => prefix().'-custom',
 				'render_template'   => '/blocks/templates/staff-cards/staff-cards.php',
 				'enqueue_style' 		=> get_stylesheet_directory_uri() . '/blocks/templates/staff-cards/css/staff-cards.css',
 				'icon'              => 'groups',
 				'keywords'          => array( 'card', 'repay', 'custom', 'pod' ),
 				'mode' => 'auto',
-				// 'example'  => array(
-				// 	'attributes' => array(
-				// 			'mode' => 'preview',
-				// 			'data' => array(
-				// 				'testimonial'   => "Your testimonial text here",
-				// 				'author'        => "John Smith"
-				// 			)
-				// 	)
-				// )
+				'enqueue_assets' 		=> function(){
+					wp_enqueue_script( 'utlis-script',  get_template_directory_uri() . '/js/utlis.js' );
+					wp_enqueue_script( 'dialog-script',  get_template_directory_uri() . '/js/dialog.js' );
+				},
 			));
 
 			acf_register_block_type(array(
@@ -199,25 +194,16 @@ function ccc_acf_blocks() {
 
 			$slug = 'svg-showcase';
 			acf_register_block_type(array(
-				'name'              => '$slug',
-				'title'             => __('SVG Showcase'),
+				'name'              => $slug,
+				'title'             => __('SVG Options Showcase'),
 				'description'       => __(''),
 				'category'          => prefix().'-custom',
-			'render_template'   => "/blocks/templates/$slug/$slug.php",
-			'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
-			'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
-				'icon'              => 'table-col-before',
-				'keywords'          => array( 'options', 'showcase', 'repay', 'custom', 'pod' ),
-				'mode' => 'auto',
-				// 'example'  => array(
-				// 	'attributes' => array(
-				// 			'mode' => 'preview',
-				// 			'data' => array(
-				// 				'testimonial'   => "Your testimonial text here",
-				// 				'author'        => "John Smith"
-				// 			)
-				// 	)
-				// )
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+			// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'art',
+				'keywords'          => array( 'options', 'svg', 'repay', 'custom', 'pod', 'animation' ),
+				'mode' => 'edit',
 			));
 
 			$slug = 'svg-media-and-text';
@@ -231,6 +217,52 @@ function ccc_acf_blocks() {
 				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
 				'icon'              => 'align-pull-left',
 				'keywords'          => array( 'options', 'svg', 'repay', 'custom', 'pod' ),
+				'mode' => 'auto',
+				// 'example'  => array(
+				// 	'attributes' => array(
+				// 			'mode' => 'preview',
+				// 			'data' => array(
+				// 				'testimonial'   => "Your testimonial text here",
+				// 				'author'        => "John Smith"
+				// 			)
+				// 	)
+				// )
+			));
+
+			$slug = 'svg-media-and-text-slides';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('SVG Media & Text - Slides'),
+				'description'       => __('Custom block with Media and Text slides, and SVG animation options for behind the block.'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'align-wide',
+				'keywords'          => array( 'slides', 'svg', 'repay', 'custom', 'pod' ),
+				'mode' => 'auto',
+				// 'example'  => array(
+				// 	'attributes' => array(
+				// 			'mode' => 'preview',
+				// 			'data' => array(
+				// 				'testimonial'   => "Your testimonial text here",
+				// 				'author'        => "John Smith"
+				// 			)
+				// 	)
+				// )
+			));
+
+			$slug = 'svg-text-and-icons';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('SVG Text & Icons'),
+				'description'       => __('Custom Text and Icons block, with SVG animation options for behind the block.'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'align-pull-right',
+				'keywords'          => array( 'icons', 'svg', 'repay', 'custom', 'pod' ),
 				'mode' => 'auto',
 				// 'example'  => array(
 				// 	'attributes' => array(
@@ -275,8 +307,8 @@ function ccc_acf_blocks() {
 				'render_template'   => "/blocks/templates/$slug/$slug.php",
 				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
 				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
-				'icon'              => 'editor-table',
-				'keywords'          => array( 'options', 'cards', 'repay', 'custom', 'pod' ),
+				'icon'              => 'info-outline',
+				'keywords'          => array( 'counter', 'stats', 'repay', 'custom', 'pod' ),
 				'mode' => 'auto',
 				// 'example'  => array(
 				// 	'attributes' => array(
@@ -298,7 +330,7 @@ function ccc_acf_blocks() {
 				'render_template'   => "/blocks/templates/$slug/$slug.php",
 				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
 				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
-				'icon'              => 'editor-table',
+				'icon'              => 'align-left',
 				'keywords'          => array( 'repay', 'custom' ),
 				'mode' => 'auto',
 				// 'example'  => array(
@@ -311,6 +343,102 @@ function ccc_acf_blocks() {
 				// 	)
 				// )
 			));
+
+			$slug = 'repay-cta-form';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('REPAY CTA Form'),
+				'description'       => __('Custom Form Call To Action with background image'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'align-left',
+				'keywords'          => array( 'repay', 'custom', 'form' ),
+				'mode' => 'auto',
+			));
+
+			$slug = 'testimonial-slides';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('Testimonial Slides'),
+				'description'       => __('Custom Testimonial slides, and SVG animation options for behind the block.'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'format-quote',
+				'keywords'          => array( 'slides', 'svg', 'repay', 'custom', 'pod', 'testimonial' ),
+				'mode' => 'auto',
+				// 'example'  => array(
+				// 	'attributes' => array(
+				// 			'mode' => 'preview',
+				// 			'data' => array(
+				// 				'testimonial'   => "Your testimonial text here",
+				// 				'author'        => "John Smith"
+				// 			)
+				// 	)
+				// )
+			));
+
+			$slug = 'cta-slides';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('CTA Slides'),
+				'description'       => __('Custom CTA slides'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'editor-insertmore',
+				'keywords'          => array( 'slides', 'svg', 'repay', 'custom', 'pod', 'cta' ),
+				'mode' => 'auto',
+			));
+
+			$slug = 'tabbed-content';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('Tabbed Content'),
+				'description'       => __('Custom Tabs with inner media, text, icon-list, and SVG background.'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'table-row-after',
+				'keywords'          => array( 'tab', 'svg', 'repay', 'custom', 'pod', 'icon', 'svg'),
+				'mode' => 'auto',
+				'enqueue_assets' 		=> function(){
+					wp_enqueue_script( 'tab-list-script',  get_template_directory_uri() . '/js/tabs-manual.js' );
+				},
+			));
+
+			$slug = 'post-feed-picker';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('Post Feed Picker'),
+				'description'       => __('Select posts to show as linked cards'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				// 'enqueue_script' 		=> get_template_directory_uri() . "/blocks/templates/$slug/js/$slug.js",
+				'icon'              => 'editor-insertmore',
+				'keywords'          => array( 'repay', 'custom' ),
+				'mode' => 'auto',
+			));
+
+			$slug = 'colored-bullets-list';
+			acf_register_block_type(array(
+				'name'              => $slug,
+				'title'             => __('Colored Bullets List'),
+				'description'       => __('Unordered list with custom colors for each bullet.'),
+				'category'          => prefix().'-custom',
+				'render_template'   => "/blocks/templates/$slug/$slug.php",
+				'enqueue_style' 		=> get_stylesheet_directory_uri() . "/blocks/templates/$slug/css/$slug.css",
+				'icon'              => 'editor-ul',
+				'keywords'          => array( 'repay', 'custom' ),
+				'mode' => 'auto',
+			));
+
 
 	}
 }

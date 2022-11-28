@@ -1,1 +1,14 @@
-.repay-svg-showcase .repay-svg{overflow:visible;max-height:80vh;object-fit:contain}.repay-svg-showcase .repay-svg path[class^=cls]{--filter: grayscale(100%) brightness(0) opacity(0.05);filter:var(--filter);transition:all 100ms ease-in 0ms}.repay-svg-showcase .repay-svg path[class^=cls].pop{animation:path-pop 1000ms ease-out}@keyframes path-pop{0%{filter:var(--filter)}50%{filter:none;fill:#81bd41}100%{filter:var(--filter)}}/*# sourceMappingURL=svg-showcase.css.map */
+.repay-svg-showcase {
+  padding: 4rem 0;
+}
+.repay-svg-showcase.behind .repay-svg-showcase__svg-background {
+  transform: translateY(-50%);
+}
+.repay-svg-showcase.behind-above .repay-svg-showcase__svg-background {
+  transform: translateY(-100%);
+}
+.repay-svg-showcase.behind-below .repay-svg-showcase__svg-background {
+  transform: translateY(0%);
+}
+
+/*# sourceMappingURL=svg-showcase.css.map */

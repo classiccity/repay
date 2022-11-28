@@ -4,39 +4,24 @@ $block_name: #{$ns}+'svg-showcase';
 
 .#{$block_name} {
 
-	.#{$ns}svg {
-		overflow: visible;
-		max-height: 80vh;
-		object-fit: contain;
-		// opacity: 0.5;
+	padding: 4rem 0;
 
-			path[class^=cls] {
-				--filter: grayscale(100%) brightness(0) opacity(0.05);
-				filter: var(--filter);
-				transition: all 100ms ease-in 0ms;
-				&.pop {
-					animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
-				}
-				// &:hover {
-				// 	transform: translateY(-0.5%) scale(1.01);
-				// animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
-				// }
-			}
+	&.behind {
+		.#{$block_name}__svg-background {
+			transform: translateY(-50%);
+		}
 	}
-}
 
-@keyframes path-pop {
-	0% {
-		filter: var(--filter);
-		// transform: translateY(0) scale(1);
+	&.behind-above {
+		.#{$block_name}__svg-background {
+			transform: translateY(-100%);
+		}
 	}
-	50% {
-		// transform: translateY(-0.5%) scale(1.01);
-		filter: none;
-		fill: $accent;
+
+	&.behind-below {
+		.#{$block_name}__svg-background {
+			transform: translateY(0%);
+		}
 	}
-	100% {
-		filter: var(--filter);
-		// transform: translateY(0) scale(1);
-	}
+
 }

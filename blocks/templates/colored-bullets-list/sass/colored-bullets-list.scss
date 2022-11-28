@@ -1,0 +1,24 @@
+@import "../../../../sass/variables";
+
+$block_name: #{$ns}+'colored-bullets-list';
+
+.#{$block_name} {
+    padding: 0;
+	li {
+		list-style: none;
+		padding-left: 2em;
+		position: relative;
+		line-height: 1.3;
+		margin-bottom: 0.3em;
+		&::before {
+			content: '';
+			width: 1em;
+			height: 1em;
+			border-radius: 1em;
+			background-color: var(--bullet-color, currentColor);
+			position: absolute;
+			left: 0.5em;
+			top: 0.05em;
+		}
+	}
+}

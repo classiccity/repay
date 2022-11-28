@@ -5,7 +5,8 @@
 
 	$default_args = array(
 		'modifier_class' => '',
-		'svg' => 'dot-circle', // 'dot-circle' 'dot-wave' 'dot-wave-3'
+		'svg' => 'dot-circle', // 'dot-circle' 'dot-wave' 'dot-wave-3' 'all-in-one-platform'
+		'animation_on' => true,
 	);
 
 	// Use array_merge to set any unset args to desired defaults
@@ -13,6 +14,7 @@
 
 	$selected_svg = $args['svg'];
 	$modifier_class = $args['modifier_class'];
+	$animation_on = $args['animation_on'];
 
 	$slug = 'template-parts/svg/inline';
 	$u_id = '_svg_'.new_unique_id();
@@ -22,19 +24,19 @@
 
 	<?php
 		if('dot-circle' === $selected_svg):
-			get_template_part($slug, 'green-blue-dot-circle.svg', array('classname'=> $u_id));
+			get_template_part($slug, 'green-blue-dot-circle.svg', array('classname'=> $u_id.' light-gray' ));
 		endif;
 	?>
 
 	<?php
 		if('dot-wave' === $selected_svg):
-			get_template_part($slug, 'green-dot-wave.svg', array('classname'=> $u_id));
+			get_template_part($slug, 'green-dot-wave.svg', array('classname'=> $u_id.' light-gray'));
 		endif;
 	?>
 
 	<?php
 		// if('dot-wave-2' === $selected_svg):
-		// 	get_template_part($slug, 'green-dot-wave-2.svg', array('classname'=> $u_id));
+		// 	get_template_part($slug, 'green-dot-wave-2.svg', array('classname'=> $u_id.' light-gray'));
 			?>
 				<script>
 					// jQuery( document ).ready(function() {
@@ -48,9 +50,19 @@
 
 	<?php
 		if('dot-wave-3' === $selected_svg):
-			get_template_part($slug, 'green-dot-wave-3.svg', array('classname'=> $u_id));
+			get_template_part($slug, 'green-dot-wave-3.svg', array('classname'=> $u_id.' light-gray'));
 		endif;
 	?>
+
+	<?php
+		if('all-in-one-platform' === $selected_svg):
+			get_template_part($slug, 'all-in-one-platform.svg', array('classname'=> $u_id));
+		endif;
+	?>
+
+
+<?php if($animation_on): ?>
+
 
 <script>
 
@@ -97,8 +109,23 @@
 			}
 			return;
 		}
-
-		if(document.hidden) return;
+		// console.log('document.hidden', document.hidden);
+		if(document.hidden) {
+			// console.log('document.hidden ACTION');
+			clearInterval(window['svg_add_path_classes_interval<?=$u_id?>']);
+			setTimeout(function(){
+				window['svg_add_path_classes_cleanup_callback<?=$u_id?>']();
+			}, 1000);
+			window['svg_add_path_classes_running<?=$u_id?>'] = false;
+			if(window['svg_add_path_classes_args<?=$u_id?>']['recall_function']) {
+				// console.log('recall_function');
+				setTimeout(function(){window['svg_add_path_classes_args<?=$u_id?>']['recall_function']()}, 1300);
+			}
+			else {
+				console.log('no recall_function');
+			}
+			return;
+		}
 		if(window['svg_add_path_classes_running<?=$u_id?>'] === true) {
 			console.warn('svg_add_path_classes_running<?=$u_id?> is still running! Adjust interval settings!');
 			return;
@@ -167,7 +194,7 @@
 
 		function pop_dot_wave<?=$u_id?>(set_interval = 0) {
 			// console.log('pop_dot_wave<?=$u_id?> at', set_interval);
-			if(document.hidden) return;
+			// if(document.hidden) return;
 			let svg_target_class = '<?=$u_id?>';
 			// let path_target_classes = [
 			// 	'cls-1443','cls-1458','cls-1483','cls-1480','cls-1482','cls-1433','cls-1481','cls-1432','cls-1431','cls-1487','cls-1485','cls-1486','cls-1453',
@@ -362,7 +389,7 @@
 
 		function pop_dot_wave_3<?=$u_id?>(set_interval = 0) {
 			// console.log('pop_dot_wave_3<?=$u_id?> at', set_interval);
-			if(document.hidden) return;
+			// if(document.hidden) return;
 			let svg_target_class = '<?=$u_id?>';
 			let path_target_classes = [];
 
@@ -484,7 +511,7 @@
 
 		function pop_dot_circle<?=$u_id?>(set_interval = 0) {
 			// console.log('pop_dot_circle<?=$u_id?> at', set_interval);
-			if(document.hidden) return;
+			// if(document.hidden) return;
 			let svg_target_class = '<?=$u_id?>';
 			//  let path_target_classes = [
 			// 	'cls-96','cls-66','cls-71','cls-72','cls-73','cls-69','cls-82','cls-93','cls-76','cls-81','cls-92','cls-20',
@@ -597,9 +624,69 @@
 
 		}
 	<?php endif; // 'dot-circle' ?>
+
+	<?php if('all-in-one-platform' === $selected_svg): ?>
+
+		jQuery( document ).ready(function() {
+			all_in_one<?=$u_id?>();
+		});
+
+		function all_in_one<?=$u_id?>(set_interval = 0) {
+			// console.log('all_in_one<?=$u_id?> at', set_interval);
+			// if(document.hidden) return;
+			let svg_target_class = '<?=$u_id?>';
+
+			let path_target_classes = [
+				'cls-3',
+				'cls-9','cls-4','cls-10','cls-6',
+				'timeout','cls-12','timeout',
+				'cls-7','cls-11','cls-5','cls-8',
+			];
+
+			if(undefined !== window.all_in_one_groups) {
+				path_target_classes = window.all_in_one_groups
+			}
+			else {
+
+				window.all_in_one_groups = path_target_classes;
+			}
+
+
+			let classname = 'pop-up';
+
+			window['all_in_one_args<?=$u_id?>'] = {
+				svg_target_class,
+				path_target_classes,
+				classname,
+				remove_only: true,
+				cleanup_callback: null,
+				interval: 0,
+			}
+
+			window['all_in_one_args_callback<?=$u_id?>'] = function() {
+				svg_add_path_classnames<?=$u_id?>(window['all_in_one_args<?=$u_id?>']);
+			}
+
+			args = {
+				svg_target_class,
+				path_target_classes,
+				classname,
+				remove_only: false,
+				cleanup_callback: window['all_in_one_args_callback<?=$u_id?>'],
+				interval: 700,
+				set_interval,
+				how_many: 1,
+				recall_function: all_in_one<?=$u_id?>,
+			}
+			svg_add_path_classnames<?=$u_id?>( args );
+
+		}
+	<?php endif; // 'all-in-one-platform' ?>
 </script>
 
 	<span class="timeout" style="display: none;"></span>
+
+<?php endif; // $animation_on ?>
 
 </div>
 <!-- end : repay/app/public/wp-content/themes/repay/template-parts/svg-animation.php -->

@@ -25,7 +25,7 @@ $color_palette = array(
 		'name'  => 'Extra Light Gray',
 		'slug'  => 'extra-light-gray',
 		'color' => '#E8E8E8',
-		'opposite' => '#000000',
+		'opposite' => '#002B54',
 	),
 );
 
@@ -91,40 +91,40 @@ function color_palette_css_classes() {
     // Elements to text color
     $elements = array('h1','h2','h3','h4','h5','h6','p','li');
 
-    echo '<style data id="color_palette_css_classes">';
+    echo '<style id="color_palette_css_classes">';
 
     // Loop through each master palette
     foreach ($color_palette as $color) {
 			?>
-			.has-text-color.has-<?=$color['slug']?>-color,
-			.has-text-color.has-<?=$color['slug']?>-color a,
-			.has-text-color.has-<?=$color['slug']?>-color:after,
-			.has-text-color.has-<?=$color['slug']?>-color:before {
-				color: var(--<?=$color['slug']?>, --wp--preset--color--<?=$color['slug']?>) !important;
-			}
+				.has-text-color.has-<?=$color['slug']?>-color,
+				.has-text-color.has-<?=$color['slug']?>-color a,
+				.has-text-color.has-<?=$color['slug']?>-color:after,
+				.has-text-color.has-<?=$color['slug']?>-color:before {
+					color: var(--<?=$color['slug']?>, --wp--preset--color--<?=$color['slug']?>) !important;
+				}
 
-			.has-<?=$color['slug']?>-light-background-color,
-			.has-<?=$color['slug']?>-dark-background-color,
-			.has-<?=$color['slug']?>-background-color {
-					background: var(--wp--preset--color--<?=$color['slug']?>) !important;
-					color: var(--<?=$color['slug']?>-opposite) !important;
-			}`
+				.has-<?=$color['slug']?>-light-background-color,
+				.has-<?=$color['slug']?>-dark-background-color,
+				.has-<?=$color['slug']?>-background-color {
+						background: var(--wp--preset--color--<?=$color['slug']?>) !important;
+						color: var(--<?=$color['slug']?>-opposite) !important;
+				}
 
-        .has-<?=$color['slug']?>-light-background-color.wp-block-button__link,
-        .has-<?=$color['slug']?>-dark-background-color.wp-block-button__link,
-        .has-<?=$color['slug']?>-background-color.wp-block-button__link {
-            color: var(--<?=$color['slug']?>-opposite) !important;
-        }
+				.has-<?=$color['slug']?>-light-background-color.wp-block-button__link,
+				.has-<?=$color['slug']?>-dark-background-color.wp-block-button__link,
+				.has-<?=$color['slug']?>-background-color.wp-block-button__link {
+						color: var(--<?=$color['slug']?>-opposite) !important;
+				}
 
 
-        <?php foreach($elements as $element) { ?>
-            .has-<?=$color['slug']?>-light-background-color <?=$element?>,
-            .has-<?=$color['slug']?>-dark-background-color <?=$element?> {
-                color:var(--<?=$color['slug']?>-opposite) !important;
-            }
-        <?php } ?>
+				<?php foreach($elements as $element) { ?>
+					.has-<?=$color['slug']?>-light-background-color <?=$element?>,
+					.has-<?=$color['slug']?>-dark-background-color <?=$element?> {
+							color:var(--<?=$color['slug']?>-opposite) !important;
+					}
+				<?php } ?>
 
-        <?php
+      <?php
 
     }
 

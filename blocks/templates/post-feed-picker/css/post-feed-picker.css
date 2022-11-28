@@ -1,0 +1,97 @@
+.repay-post-feed-picker {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 2rem 0;
+}
+@media (max-width: 768px) {
+  .repay-post-feed-picker {
+    flex-wrap: wrap;
+  }
+}
+.repay-post-feed-picker > * {
+  position: relative;
+  z-index: 1;
+}
+.repay-post-feed-picker nav {
+  padding: 3rem 0;
+}
+.repay-post-feed-picker__feed-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+.repay-post-feed-picker__card {
+  width: calc((100% - 6rem) / 3);
+  background-color: white;
+  border: 1px solid #dae0e6;
+  box-shadow: 0px 4px 15px 3px rgba(136, 136, 136, 0.25);
+  transition: transform 300ms ease;
+}
+.repay-post-feed-picker__card:hover {
+  transform: scale(1.015);
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  .repay-post-feed-picker__card {
+    width: calc((100% - 6rem) / 2);
+  }
+}
+@media (max-width: 768px) {
+  .repay-post-feed-picker__card {
+    width: 100%;
+  }
+}
+.repay-post-feed-picker__card article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.repay-post-feed-picker__heading {
+  width: 100%;
+}
+.repay-post-feed-picker__image-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.repay-post-feed-picker__image-container img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+  margin: auto;
+  object-fit: cover;
+  display: inline-block;
+}
+.repay-post-feed-picker__text-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.repay-post-feed-picker__title {
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: none;
+  color: #81BD41;
+}
+.repay-post-feed-picker__text {
+  margin: 0;
+}
+.repay-post-feed-picker__link {
+  margin-top: auto;
+  place-self: flex-start;
+}
+.edit-post-visual-editor .repay-post-feed-picker {
+  overflow-y: hidden;
+}
+
+/*# sourceMappingURL=post-feed-picker.css.map */

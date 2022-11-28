@@ -1,1 +1,46 @@
-.repay-featured-clients{display:flex;flex-direction:row;max-width:90%;margin:3rem auto;column-gap:3rem;row-gap:3rem;justify-content:center;flex-wrap:wrap}.repay-featured-clients__icon{display:inline-block;object-fit:contain;background:#fff;--w: 150px;width:var(--w);height:calc(var(--w)/2);filter:grayscale(100%) opacity(0.7);transition:all 250ms ease}.repay-featured-clients__icon--padding{padding:10px}@media screen and (max-width: 768px){.repay-featured-clients__icon{--w: 24vw;min-width:100px;min-height:100px}}.repay-featured-clients a{transition:all 250ms ease}.repay-featured-clients a:hover,.repay-featured-clients a:focus{transform:scale(1.02)}.repay-featured-clients a:hover .repay-featured-clients__icon,.repay-featured-clients a:focus .repay-featured-clients__icon{filter:grayscale(0%)}@media screen and (max-width: 768px){.repay-featured-clients{column-gap:1rem;row-gap:1rem}}/*# sourceMappingURL=featured-clients.css.map */
+.repay-featured-clients {
+  display: flex;
+  flex-direction: row;
+  max-width: 90%;
+  margin: 3rem auto;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.repay-featured-clients__icon {
+  display: inline-block;
+  object-fit: contain;
+  background: white;
+  --w: 150px;
+  width: var(--w);
+  height: calc(var(--w) / 2);
+  filter: grayscale(100%);
+  transition: all 250ms ease;
+}
+.repay-featured-clients__icon--padding {
+  padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .repay-featured-clients__icon {
+    --w: 24vw;
+    min-width: 100px;
+    min-height: 100px;
+  }
+}
+.repay-featured-clients a {
+  transition: all 250ms ease;
+}
+.repay-featured-clients a:hover, .repay-featured-clients a:focus {
+  transform: scale(1.02);
+}
+.repay-featured-clients a:hover .repay-featured-clients__icon, .repay-featured-clients a:focus .repay-featured-clients__icon {
+  filter: grayscale(0%);
+}
+@media screen and (max-width: 768px) {
+  .repay-featured-clients {
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+}
+
+/*# sourceMappingURL=featured-clients.css.map */

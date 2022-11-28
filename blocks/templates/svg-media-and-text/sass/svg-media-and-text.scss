@@ -8,6 +8,7 @@ $block_name: #{$ns}+'svg-media-and-text';
 	flex-direction: row;
 	position: relative;
 	padding: 15% 0;
+	gap: 4rem;
 
 	@media (max-width: $breakpoint-md) {
 		flex-wrap: wrap;
@@ -127,6 +128,7 @@ $block_name: #{$ns}+'svg-media-and-text';
 
 		img {
 			width: 100%;
+			height: auto;
 			object-fit: contain;
 			display: inline-block;
 		}
@@ -138,6 +140,26 @@ $block_name: #{$ns}+'svg-media-and-text';
     flex-direction: column;
     justify-content: center;
 		row-gap: 2rem;
+	}
+
+
+	&__icon-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		& > li {
+			display: flex;
+			gap: 2rem;
+			& + li {
+				margin-top: 1rem;
+			}
+			& > img {
+				width: 2.5rem;
+				max-height: 2.5rem;
+				object-fit: contain;
+			}
+
+		}
 	}
 
 	&.size-option-60-40 {

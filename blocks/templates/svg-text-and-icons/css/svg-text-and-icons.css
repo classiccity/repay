@@ -1,0 +1,160 @@
+.repay-svg-text-and-icons {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 15% 0;
+  gap: 4rem;
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons {
+    flex-wrap: wrap;
+  }
+}
+.repay-svg-text-and-icons > * {
+  position: relative;
+  z-index: 1;
+}
+.repay-svg-text-and-icons__svg-background {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.repay-svg-text-and-icons__svg-background.dot-circle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-circle {
+    align-items: flex-start;
+    justify-content: center;
+    top: 7.5%;
+  }
+}
+.repay-svg-text-and-icons__svg-background.dot-circle svg.green-blue-dot-circle {
+  width: 50%;
+  padding: 3%;
+  transform: rotate(195deg) scaleX(-1);
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-circle svg.green-blue-dot-circle {
+    width: 100%;
+  }
+}
+.repay-svg-text-and-icons__svg-background.dot-wave {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-wave {
+    align-items: center;
+  }
+}
+.repay-svg-text-and-icons__svg-background.dot-wave svg.green-dot-wave {
+  transform: scale(1.5) translateY(-20%);
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-wave svg.green-dot-wave {
+    transform: scale(2.5) translateY(-40%);
+  }
+}
+.repay-svg-text-and-icons__svg-background.dot-wave-3 {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+  margin: 0 calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-wave-3 {
+    align-items: center;
+  }
+}
+.repay-svg-text-and-icons__svg-background.dot-wave-3 svg.green-dot-wave-3 {
+  transform: scale(3) rotate(6deg);
+  --filter: grayscale(100%) brightness(0) opacity(0.08);
+  position: relative;
+  left: -20%;
+  top: -35%;
+  transform-origin: center top;
+}
+@media (max-width: 768px) {
+  .repay-svg-text-and-icons__svg-background.dot-wave-3 svg.green-dot-wave-3 {
+    transform: scale(2) translateY(-20%);
+  }
+}
+.repay-svg-text-and-icons.icons-right {
+  flex-direction: row-reverse;
+}
+.repay-svg-text-and-icons.icons-right .repay-svg-text-and-icons__svg-background.dot-circle {
+  flex-direction: row-reverse;
+}
+.repay-svg-text-and-icons__media-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.repay-svg-text-and-icons__icons-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center;
+}
+.repay-svg-text-and-icons__icons-container img {
+  max-width: 100px;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+.repay-svg-text-and-icons__icon {
+  width: calc(50% - 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.repay-svg-text-and-icons__text-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2rem;
+}
+.repay-svg-text-and-icons.size-option-60-40 {
+  column-gap: 2rem;
+}
+.repay-svg-text-and-icons.size-option-60-40 .repay-svg-text-and-icons__svg-background {
+  margin: 0 calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
+}
+.repay-svg-text-and-icons.size-option-60-40 .repay-svg-text-and-icons__svg-background svg.green-blue-dot-circle {
+  transform: rotate(-10deg) scaleX(-1);
+}
+.repay-svg-text-and-icons.size-option-60-40 .repay-svg-text-and-icons__icons-container {
+  width: 60%;
+}
+.repay-svg-text-and-icons.size-option-60-40 .repay-svg-text-and-icons__text-container {
+  width: 40%;
+}
+.repay-svg-text-and-icons__heading {
+  margin: 0;
+}
+.edit-post-visual-editor .repay-svg-text-and-icons {
+  overflow-y: hidden;
+}
+
+/*# sourceMappingURL=svg-text-and-icons.css.map */

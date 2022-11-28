@@ -69,6 +69,8 @@ Class HeroSection {
             $this->post = $post;
         }
 
+				if($post == null) return;
+
         // Get all fields from the hero section
         $fields = get_fields($this->post->ID);
 

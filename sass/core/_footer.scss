@@ -2,7 +2,7 @@ footer {
   background-color: white;
   color: var(--gray-gray-800-opposite);
   font-size: 1.125rem;
-  letter-spacing: .1em;
+  letter-spacing: 0.05em;
   padding:3rem 0;
 
 	.footer-container {
@@ -84,6 +84,7 @@ a {
 	height: 90px;
 	padding: 8px;
 	width: auto;
+	max-width: 100%;
 	object-fit: contain;
 }
 

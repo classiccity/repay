@@ -7,8 +7,7 @@ $block_name: #{$ns}+'featured-clients';
 	flex-direction: row;
 	max-width: 90%;
 	margin: 3rem auto;
-	column-gap: 3rem;
-	row-gap: 3rem;
+	gap: 2rem;
 	justify-content: center;
 	flex-wrap: wrap;
 
@@ -19,11 +18,14 @@ $block_name: #{$ns}+'featured-clients';
 		--w: 150px;
     width: var(--w);
     height: calc(var(--w)/2);
-		filter: grayscale(100%) opacity(0.7);
+		filter: grayscale(100%);
 		transition: all 250ms ease;
 
+		// border: 1px solid #D9D9D9;
+		// box-shadow: 0px 4px 15px 3px rgba(136, 136, 136, 0.25);
+
 		&--padding {
-			padding: 10px;
+			padding: 1rem;
 		}
 
 		@media screen and (max-width:$breakpoint-md) {

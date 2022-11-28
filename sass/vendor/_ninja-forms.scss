@@ -1,0 +1,31 @@
+.nf-form-cont {
+
+	.nf-form-content label {
+		color: currentColor;
+		font-weight: 400;
+		text-indent: 25px;
+	}
+
+	.nf-form-wrap .nf-form-layout .nf-form-content .list-select-wrap .nf-field-element>div,
+	.nf-form-wrap .nf-form-layout .nf-form-content input:not([type=button]) {
+		border-radius: 50px;
+	}
+
+	.nf-form-wrap .nf-form-layout .nf-form-content textarea {
+		border-radius: 25px;
+	}
+
+	.nf-form-wrap .nf-form-layout .nf-form-content button,
+	.nf-form-wrap .nf-form-layout .nf-form-content input[type=button],
+	.nf-form-wrap .nf-form-layout .nf-form-content input[type=submit] {
+
+		@include button();
+
+		&:hover,
+		&:focus {
+			background: $accent !important;
+			color: $accent-opposite !important;
+		}
+
+	}
+}

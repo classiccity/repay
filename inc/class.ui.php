@@ -293,12 +293,22 @@ Class UI {
 																	<i class="<?=prefix()?>-sub-icon fal fa-angle-down" tabindex="-1" role="button" aria-hidden="true"></i>
 																<?php } ?>
 
-                                    <?php if(!empty($menu_item->submenu)) { ?>
+                                    <?php if(!empty($menu_item->submenu)) {
+																			$mega_menu = (count($menu_item->submenu) > 7);
+																			$columns = 2;
+																			if(count($menu_item->submenu) > 12) $columns++;
+																			if(count($menu_item->submenu) > 16) $columns++;
+																			?>
 
-                                        <ul class="<?=prefix()?>-navigation__sub-menu">
+                                        <ul class="<?=prefix()?>-navigation__sub-menu <?php if($mega_menu) echo 'mega-menu columns-'.$columns;?>">
                                             <?php foreach($menu_item->submenu as $submenu_item) { ?>
                                             <li class="<?=prefix()?>-navigation-submenu__item">
-                                                <a href="<?=$submenu_item->url?>" class="<?=prefix()?>-navigation-submenu__link <?=implode(' ', $submenu_item->classes)?>" target="<?=$submenu_item->target?>" title="<?=$submenu_item->attr_title?>"><?=$submenu_item->title?></a>
+                                                <a href="<?=$submenu_item->url?>" class="<?=prefix()?>-navigation-submenu__link <?=implode(' ', $submenu_item->classes)?>" target="<?=$submenu_item->target?>" title="<?=$submenu_item->attr_title?>">
+																									<?=$submenu_item->title?>
+																									<?php if(!empty($submenu_item->description)): ?>
+																										<div class="<?=prefix()?>-navigation-submenu__description"><?=$submenu_item->description?></div>
+																									<?php endif; ?>
+																								</a>
                                             </li>
                                             <?php } ?>
                                         </ul>
@@ -493,9 +503,10 @@ Class UI {
 
 			$link_url = $link['url'];
 			$link_title = $link['title'];
-			$link_target = $link['target'] ? $link['target'] : '_self';
+			$link_target = (key_exists('target', $link)) ? $link['target'] : '_self';
+			$link_attributes = (key_exists('attributes', $link)) ? $link['attributes'] : '';
 
-			$link_html = '<a class="'.$css_classes.'" href="'.esc_url( $link_url ).'" target="'.esc_attr( $link_target ).'">'.esc_html( $link_title ).'</a>';
+			$link_html = '<a class="'.$css_classes.'" href="'.esc_url( $link_url ).'" target="'.esc_attr( $link_target ).'" '.esc_attr($link_attributes).' >'.esc_html( $link_title ).'</a>';
 
 			if( $echo ) {
 				echo $link_html;

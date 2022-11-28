@@ -15,6 +15,7 @@ $primary-light: #082f5c;
 	justify-content: flex-start;
 	color: white;
 	background-color: $primary;
+	padding: 3rem 0;
 
 	&__background-image {
 		height:100%;
@@ -84,12 +85,12 @@ $primary-light: #082f5c;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		row-gap: 2rem;
+		row-gap: 1rem;
 	}
 
 	&__heading {
 		margin: 0;
-		line-height: 1.35;
+		// line-height: 1.35;
 	}
 
 	&__text {
@@ -98,6 +99,17 @@ $primary-light: #082f5c;
 		max-width: 42ch;
 		@media screen and (max-width: $breakpoint-sm) {
 			font-size: 1rem;
+		}
+	}
+
+	&__button {
+
+		a.button.has-repay-lime-background-color {
+			&:hover,
+			&:focus {
+				background: var(--repay-lime-opposite) !important;
+				color: var(--wp--preset--color--dark-blue) !important;
+			}
 		}
 	}
 }

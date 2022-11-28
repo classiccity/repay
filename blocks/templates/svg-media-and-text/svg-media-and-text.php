@@ -50,6 +50,24 @@
 					</div>
 				<?php endif; ?>
 
+				<?php if(have_rows('icon_list')): ?>
+					<ul class="<?php echo $block_name . '__icon-list'; ?>">
+						<?php while ( have_rows('icon_list') ) : the_row();
+
+							$item_icon = get_sub_field('item_icon');
+							$item_icon_html = ($item_icon) ? wp_get_attachment_image($item_icon['ID'], prefix().'-thumbnail-full' ) : false;
+							$item_text = get_sub_field('item_text');
+						?>
+							<li>
+								<?php if($item_icon_html) echo $item_icon_html; ?>
+								<div>
+									<?=$item_text?>
+								</div>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
+
 				<?php
 					if( $button_link ):
 						UI::html_acf_link($button_link, 'button');

@@ -36,7 +36,7 @@ $block_name: #{$ns}+'staff-cards';
 	&__staff-card {
 		background-color: white;
 		position: relative;
-		z-index: 2;
+		// z-index: 2;
 		width: calc((100% - 6rem)/4);
 		padding: 1.5rem;
 		border: 1px solid $light-gray;
@@ -66,6 +66,7 @@ $block_name: #{$ns}+'staff-cards';
 
 	&__title {
 		color: $accent;
+		font-weight: 500;
 	}
 
 	&__button {

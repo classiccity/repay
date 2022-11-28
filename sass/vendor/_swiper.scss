@@ -30,6 +30,18 @@
 // 	object-fit: cover;
 // }
 
+.swiper {
+	--swiper-pagination-color: #002B54;
+	--swiper-theme-color: #81BD41;
+	--swiper-pagination-bullet-inactive-color: #81BD41;
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--swiper-pagination-bullet-size: 10px;
+}
+
+.has-dark-blue-background-color .swiper {
+	--swiper-pagination-color: currentColor;
+}
+
 .fliptext {
 	// .swiper-wrapper {
 	// 	align-items: flex-end;

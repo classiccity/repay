@@ -31,7 +31,7 @@
 	</header>
 
 	<?php if( have_rows('link_cards') ): ?>
-		<ul class="<?php echo $block_name . '__cards'; ?>">
+		<ul class="<?php echo $block_name . '__cards'; ?> fade-in-onload">
 		<?php while( have_rows('link_cards') ) : the_row();
 
 			$card_heading = get_sub_field('card_heading');

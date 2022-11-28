@@ -34,6 +34,7 @@ html {
 // stylelint-disable-next-line selector-list-comma-newline-after
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
+	width: 100%;
 }
 
 // Body
@@ -46,10 +47,10 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0; // 1
   font-family: $font-body;
-  font-size:16px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.2;
-  color: $dark-gray;
+  color: $dark;
   text-align: left; // 3
   background-color: #FFF; // 2
 }

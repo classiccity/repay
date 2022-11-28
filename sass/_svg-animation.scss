@@ -10,36 +10,52 @@
 		object-fit: contain;
     width: 100%;
 
-			path[class^=cls] {
-				// filter: var(--filter);
+		&.light-gray {
+
+			path[class^=cls],
+			rect[class^=cls] {
 				transition: all 100ms ease-in 0ms;
 				fill: $light-gray;
 				opacity: 0.5;
 				&.pop {
-					// fill: $accent;
-					animation: path-pop 1000ms ease-out; // delay iteration-count direction fill-mode;
+					animation: path-pop 1000ms ease-out;
 				}
 			}
+
+		}
+
+		path[class^=cls],
+		rect[class^=cls] {
+			transition: all 500ms ease-in 0ms;
+			transform-origin: center;
+			&.pop-up {
+				animation: pop-up 1000ms ease-out;
+				--scale-to: 1.05;
+			}
+			&.scale-bump {
+				--scale-to: 1.1;
+			}
+		}
+
+
 	}
 }
 
 @keyframes path-pop {
-	0% {
-		// filter: var(--filter);
-		// transform: translateY(0) scale(1);
+	0%, 100% {
 		opacity: 0.5;
 		fill: $light-gray;
 	}
 	50% {
-		// transform: translateY(-0.5%) scale(1.01);
-		// filter: none;
 		opacity: 1;
 		fill: $accent;
 	}
-	100% {
-		// filter: var(--filter);
-		// transform: translateY(0) scale(1);
-		opacity: 0.5;
-		fill: $light-gray;
+}
+@keyframes pop-up {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(var(--scale-to, 1.05));
 	}
 }
