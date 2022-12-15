@@ -1,5 +1,31 @@
 <?php
 
+function enable_strict_transport_security_hsts_header_wordpress() {
+
+	if (function_exists('header_remove')) {
+		header_remove('Access-Control-Allow-Origin'); // remove *
+		header_remove('X-Powered-By');
+		header_remove('Server');
+	}
+
+  header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
+	header('Access-Control-Allow-Origin: ' . get_site_url()); // not an *
+	header('X-Frame-Options: SAMEORIGIN');
+	header('X-Content-Type-Options: nosniff');
+
+	$policies = array( // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+		"default-src 'self' 'unsafe-inline'",
+		"font-src 'self' *.fontawesome.com fonts.googleapis.com fonts.gstatic.com data:",
+		"style-src 'self' 'unsafe-inline' *.fontawesome.com cdn.jsdelivr.net fonts.googleapis.com cdnjs.cloudflare.com",
+		"script-src 'self' 'unsafe-inline' *.fontawesome.com cdnjs.cloudflare.com cdn.jsdelivr.net",
+		"connect-src 'self' *.fontawesome.com",
+	);
+	header("Content-Security-Policy: " . implode('; ', $policies));
+
+
+}
+add_action( 'send_headers', 'enable_strict_transport_security_hsts_header_wordpress' );
+
 include('inc/core.php');
 include('inc/enqueue.php');
 include('inc/class.ui.php');
