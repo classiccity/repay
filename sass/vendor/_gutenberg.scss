@@ -2,6 +2,7 @@
 .aligncenter {
 	width: var(--container-width, 100%);
 	margin: auto;
+	max-width: 100%;
 }
 .alignwide {
   margin: 0px calc(50% - 47.5vw);

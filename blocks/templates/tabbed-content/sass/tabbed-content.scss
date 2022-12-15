@@ -71,7 +71,8 @@ $block_name: #{$ns}+'tabbed-content';
 		img {
 			width: 100%;
 			height: auto;
-			object-fit: contain;
+			object-fit: cover;
+			aspect-ratio: 25/16;
 			display: inline-block;
 		}
 	}

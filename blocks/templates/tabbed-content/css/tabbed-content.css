@@ -58,7 +58,8 @@
 .repay-tabbed-content__media-container img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
+  aspect-ratio: 25/16;
   display: inline-block;
 }
 .repay-tabbed-content__text-container {

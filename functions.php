@@ -17,8 +17,9 @@ function enable_strict_transport_security_hsts_header_wordpress() {
 		"default-src 'self' 'unsafe-inline'",
 		"font-src 'self' *.fontawesome.com fonts.googleapis.com fonts.gstatic.com data:",
 		"style-src 'self' 'unsafe-inline' *.fontawesome.com cdn.jsdelivr.net fonts.googleapis.com cdnjs.cloudflare.com",
-		"script-src 'self' 'unsafe-inline' *.fontawesome.com cdnjs.cloudflare.com cdn.jsdelivr.net",
+		"script-src 'self' 'unsafe-inline' 'unsafe-eval' *.fontawesome.com cdnjs.cloudflare.com cdn.jsdelivr.net",
 		"connect-src 'self' *.fontawesome.com",
+		"img-src 'self' data: *.gravatar.com",
 	);
 	header("Content-Security-Policy: " . implode('; ', $policies));
 

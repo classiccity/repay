@@ -33,7 +33,8 @@ $block_name: #{$ns}+'cta-slides';
 			max-width: 100%;
 			height: 5rem;
 			margin: auto;
-			object-fit: contain;
+			object-fit: cover;
+			aspect-ratio: 25/16;
 			display: inline-block;
 		}
 	}

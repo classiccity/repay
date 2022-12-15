@@ -115,7 +115,8 @@
 .repay-svg-media-and-text-slides__media-container img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
+  aspect-ratio: 25/16;
   display: inline-block;
 }
 .repay-svg-media-and-text-slides__text-container {
@@ -196,6 +197,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  height: auto;
 }
 
 /*# sourceMappingURL=svg-media-and-text-slides.css.map */
